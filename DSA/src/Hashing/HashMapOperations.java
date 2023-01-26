@@ -1,5 +1,6 @@
 package Hashing;
 import java.util.HashMap;
+import java.util.*;
 
 public class HashMapOperations {
     public static void main(String[] args) {
@@ -29,5 +30,14 @@ public class HashMapOperations {
         //IsEmpty
         hm.clear();
         System.out.println(hm.isEmpty());
+
+        //Iterate
+        //entrySet
+        Set<String> keys = hm.keySet();
+        System.out.println(keys);
+
+        for (String k : keys) { //foreach
+            System.out.println("key = "+k+", value = "+hm.get(k));
+        }
     }
 }
