@@ -1,6 +1,10 @@
-package Hashing;
+/*
+   Notes:
+        -> In worst Case Time Complexity will be O(n)
+ */
+
+package Hashing.Code;
 import java.util.LinkedList;
-import java.rmi.server.SocketSecurityException;
 import java.util.ArrayList;
 
 public class HashMapCode {
