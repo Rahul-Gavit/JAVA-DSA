@@ -24,5 +24,12 @@ public class MajorityElement {
                 System.out.println(key);
             }
         }
+
+        // -> short way of writing set data structure
+        // for (Integer key : hm.keySet()) {
+        //     if(hm.get(key) > arr.length/3){
+        //         System.out.println(key);
+        //     }
+        // }
     }
 }
