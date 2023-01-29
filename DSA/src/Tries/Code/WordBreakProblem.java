@@ -1,18 +1,6 @@
-/*
-     Notes:
-         -> Tries is prefix tree
-         -> Tries store prefix one time
-         -> Tries gives unique Substrings
-         -> Tires is also Known as retrivel tree
-         -> Tries are at max 26 childrens
-         -> Tries Gives optimized time complexity & wrost Space Complexity
-         -> Tires are use in find out word or substring in string with the help of prefix suffix.
-
- */
-
 package Tries.Code;
 
-public class TriesOperations {
+public class WordBreakProblem {
 
     static class Node{
         Node children[] = new Node[26];
@@ -26,22 +14,6 @@ public class TriesOperations {
     }
 
     public static Node root = new Node();
-
-    /*
-        words[] = {"the", "a", "there", "their", "any", "thee"};
-
-                                 . (root)
-                                / \
-                               t   a
-                              /     \
-                             h       n
-                            /         \
-                           e __ e      y (eow)=True
-                          / \ 
-                         r   i
-                        /     \
-            (eow)=true e       r (eow)=true
-     */
 
     public static void insert(String word){ //O(L)
         Node curr = root;
@@ -68,14 +40,28 @@ public class TriesOperations {
         }
         return curr.eow == true;
     }
+
+    public static boolean wordBreak(String key){ //O(L)
+        if(key.length() == 0){
+            return true;
+        }
+
+        for(int i=1; i<key.length(); i++){
+            if(search(key.substring(0,i)) &&
+            wordBreak(key.substring(i)));{
+                return true;
+            }
+        }
+        return false;
+    }
     public static void main(String[] args) {
-        String words[] = {"the", "a", "there", "their", "any", "thee"};
+        String words[] = {"i", "like", "sam", "samsung", "mobile", "ice"};
 
         for(int i=0; i<words.length; i++){
             insert(words[i]);
         }
+        String key = "ilikesamsung";
 
-        System.out.println(search("thee"));
-        System.out.println(search("thor"));
+        System.out.println(wordBreak(key));
     }
 }
