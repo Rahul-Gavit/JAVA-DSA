@@ -40,6 +40,11 @@ public class TarjansAlgo {
         graph[5].add(new Edge(5, 4));
     }
 
+    /*
+       Bridge in Graphs
+       -> Bridge is an edge whose deletion increases the graph's number of connected components
+    */
+
     public static void dfs(ArrayList<Edge>[] graph, int curr, int par, int dt[], int low[],
                            boolean vis[], int time){
         
@@ -79,7 +84,11 @@ public class TarjansAlgo {
     }
 
 
-    // Articulation Point
+    /* 
+       Articulation Point
+       -> A vertex in an undirected connected graph is an articulation point (or cut vertex)
+          if removing it (and edges through it) increases the connected components of graph.
+    */
 
     public static void dfs(ArrayList<Edge>[] graph, int curr, int par, int dt[],
                            int low[], int time, boolean vis[], boolean ap[]){
