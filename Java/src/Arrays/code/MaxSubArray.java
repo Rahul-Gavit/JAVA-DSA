@@ -50,25 +50,25 @@ public class MaxSubArray {
         return maxSum;
     }
 
-    //Kadans Approach (work on negative numbers also)
+    //Kadans Approach (Not working on all negative elements in array)
     public static int kadans(int[] nums) { //TC => O(n)
-        int currSum = 0;
-        int maxSum = Integer.MIN_VALUE;
+        int cs = 0;
+        int ms = Integer.MIN_VALUE;
 
         for(int i=0; i<nums.length; i++){
-            currSum = currSum + nums[i];
-            if( maxSum < currSum){
-                maxSum = currSum;
+            cs = cs + nums[i];
+            if(cs < 0){
+                cs = 0;
             }
-            currSum = Math.max(currSum, 0);
+            ms = Math.max(cs, ms);
         }
-        return maxSum;
+        
+        return ms;
     } 
     public static void main(String[] args) {
         int nums[] = {1, -2, 6, -1, 3};
-        int nums2[] = {-1, -2, -3};
         System.out.println(maxSubArray(nums));
         System.out.println(prefixSubArray(nums));
-        System.out.println(kadans(nums2));
+        System.out.println(kadans(nums));
     }
 }
