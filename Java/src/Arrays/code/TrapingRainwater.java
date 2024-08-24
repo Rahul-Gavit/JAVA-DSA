@@ -1,5 +1,3 @@
-package Arrays.code;
-
 public class TrapingRainwater {
 
     public static void trapRainWater(int height[]) {
